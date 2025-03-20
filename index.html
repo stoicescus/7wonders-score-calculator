@@ -3,9 +3,105 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<title>7Wonders Score Calculator</title>
 	</head>
 	<body>
-		7 Wonders Score Calculator
+		<header>
+			<h1>7Wonders Score Calculator</h1>
+		</header>
+		<main>
+			<form>
+				<label>Player Name</label>
+				<input type="text" autofocus />
+
+				<label>
+					Military Conflicts
+					<img src="./assets/military_color.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<label>
+					Treasury Contents
+					<img src="./assets/coin.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<label>
+					Wonder
+					<img src="./assets/wonder.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<label>
+					Civilian Structures
+					<img src="./assets/civilian_color.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<label>
+					Scientific Structures
+					<img src="./assets/scientific_color.png" width="30" height="30" />
+				</label>
+				<div class="science_row">
+					<div>
+						<img src="./assets/Symbol-A.png" width="30" />
+						<input type="number" value="0" />
+					</div>
+					<div>
+						<img src="./assets/Symbol-B.png" width="30" />
+						<input type="number" value="0" />
+					</div>
+					<div>
+						<img src="./assets/Symbol-C.png" width="30" />
+						<input type="number" value="0" />
+					</div>
+				</div>
+
+				<label>
+					Commercial Structures
+					<img src="./assets/commercial_color.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<label>
+					Guilds
+					<img src="./assets/guild_color.jpg" width="30" height="30" />
+				</label>
+				<input type="number" value="0" />
+
+				<button class="default">Reset</button>
+				<button class="cta">Calculate Score</button>
+			</form>
+			<aside>
+				<section>
+					<table class="scores-table">
+						<caption>
+							Players Scores
+						</caption>
+						<thead>
+							<tr>
+								<th>Player Name</th>
+								<th>Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Sorin</td>
+								<td>38</td>
+							</tr>
+							<tr>
+								<td>Bianca</td>
+								<td>40</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="winner">Winner:</div>
+				</section>
+			</aside>
+		</main>
+
+		<script src="./main.js"></script>
 	</body>
 </html>
