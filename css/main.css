@@ -1,0 +1,163 @@
+html,
+body {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	padding: 1rem;
+	border-bottom: 1px solid lightgray;
+
+	display: flex;
+	align-items: center;
+}
+
+main {
+	display: flex;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 1fr minmax(0, 1.5fr);
+	row-gap: 10px;
+	column-gap: 5px;
+
+	border: 1px solid lightgray;
+	background: url('../assets/background.jpg');
+	background-repeat: no-repeat;
+
+	padding: 1rem;
+	max-width: 70vw;
+	min-width: 500px;
+	border-radius: 10px;
+}
+
+form label {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	white-space: nowrap;
+}
+
+form label img {
+	margin-left: 5px;
+}
+
+form .science_row {
+	display: flex;
+	justify-content: space-between;
+}
+
+form .science_row input[type='number'] {
+	width: 50px;
+}
+
+form .science_row div {
+	display: flex;
+}
+
+form .science_row div > :nth-child(odd) {
+	margin-right: 5px;
+}
+
+/* ===============
+   BUTTON STYLES 
+   =============== */
+
+form button {
+	margin-top: 1rem;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 0.5rem;
+	transition: background-color 0.3s;
+}
+
+form button.cta {
+	background-color: #337aff;
+}
+
+form button.cta:hover {
+	background-color: #779fec;
+}
+
+form button.default {
+	background-color: #878a90;
+}
+
+form button.default:hover {
+	background-color: #999ca2;
+}
+
+form button:focus {
+	outline: none;
+}
+
+/* ===============
+   INPUT STYLES 
+   =============== */
+
+form input {
+	border-radius: 5px;
+	border: 1px solid lightblue;
+}
+
+form input[type='number'] {
+	text-align: center;
+}
+
+/* ===============
+   ASIDE STYLES 
+   =============== */
+
+aside {
+	border: 1px solid lightgray;
+	background: url('../assets/background_2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow-y: auto;
+
+	padding: 1rem;
+	border-radius: 10px;
+}
+
+aside table.scores-table {
+	border: 1px solid lightblue;
+	height: 100%;
+	table-layout: auto;
+	border-collapse: collapse;
+	border-spacing: 1px;
+	text-align: center;
+}
+
+aside table.scores-table caption {
+	text-decoration: underline;
+	padding-bottom: 0.5rem;
+}
+
+aside table.scores-table th,
+aside table.scores-table td {
+	border: 1px solid lightblue;
+	padding: 0.5rem;
+}
+
+aside table.scores-table th {
+	background-color: #dededf;
+}
+
+aside table.scores-table td {
+	background-color: transparent;
+}
+
+aside .winner {
+	margin-top: 1rem;
+	font-weight: bold;
+}
