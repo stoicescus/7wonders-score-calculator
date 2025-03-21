@@ -11,12 +11,6 @@ main {
 	display: flex;
 }
 
-@media screen and (max-width: 700px) {
-	main {
-		flex-direction: column;
-	}
-}
-
 form {
 	display: grid;
 	grid-template-columns: 1fr minmax(0, 1.5fr);
@@ -32,13 +26,6 @@ form {
 	max-width: 100%;
 	min-width: 30%;
 	border-radius: 10px;
-}
-
-@media screen and (max-width: 600px) {
-	form {
-		width: 90%;
-		margin: 0 auto;
-	}
 }
 
 form label {
@@ -163,4 +150,31 @@ aside table.scores-table td {
 aside .winner {
 	margin-top: 1rem;
 	font-weight: bold;
+}
+
+/* ===============
+   MEDIA QUERIES 
+   =============== */
+
+@media screen and (max-width: 600px) {
+	body {
+		align-items: flex-start;
+	}
+
+	form {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	aside {
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 0.5rem;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	main {
+		flex-direction: column;
+	}
 }
