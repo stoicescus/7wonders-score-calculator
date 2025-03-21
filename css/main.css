@@ -169,7 +169,7 @@ aside .winner {
 	}
 
 	form {
-		grid-template-columns: 150px minmax(0, 1.5fr);
+		grid-template-columns: 140px minmax(0, 1.5fr);
 		row-gap: 5px;
 		column-gap: 5px;
 		width: 90%;
