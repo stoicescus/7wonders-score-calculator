@@ -174,7 +174,6 @@ aside .winner {
 		column-gap: 5px;
 		width: 90%;
 		max-width: 90%;
-		margin: 0;
 		padding: 0;
 	}
 
@@ -198,8 +197,12 @@ aside .winner {
 	aside {
 		max-width: 90%;
 		width: 90%;
-		margin: 0;
 		margin-top: 0.5rem;
+	}
+
+	form,
+	aside {
+		margin: 0 auto;
 	}
 }
 
