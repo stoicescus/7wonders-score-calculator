@@ -178,7 +178,7 @@ aside .winner {
 	}
 
 	form .science_row {
-		justify-content: center;
+		justify-content: space-between;
 	}
 
 	form .science_row input[type='number'] {
