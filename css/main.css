@@ -22,7 +22,7 @@ form {
 	background-repeat: no-repeat;
 
 	padding: 1rem;
-	width: 70%;
+	width: 75%;
 	max-width: 100%;
 	min-width: 30%;
 	border-radius: 10px;
@@ -32,7 +32,13 @@ form label {
 	display: flex;
 	align-items: center;
 	justify-content: right;
+}
+
+form label span {
+	display: inline-block;
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 form label img {
