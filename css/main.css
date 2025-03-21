@@ -186,7 +186,7 @@ aside .winner {
 	}
 
 	form .science_row div > :nth-child(odd) {
-		margin-right: 3px;
+		margin-right: 5px;
 	}
 
 	form .science_row div img {
