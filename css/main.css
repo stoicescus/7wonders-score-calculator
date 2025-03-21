@@ -168,8 +168,19 @@ aside .winner {
 	}
 
 	form {
+		grid-template-columns: 0.5fr minmax(0, 1.5fr);
+		row-gap: 5px;
+		column-gap: 5px;
 		width: 90%;
 		margin: 0 auto;
+	}
+
+	form .science_row input[type='number'] {
+		width: 30px;
+	}
+
+	form .science_row div > :nth-child(odd) {
+		margin-right: 3px;
 	}
 
 	aside {
