@@ -11,31 +11,59 @@
 		<main>
 			<form>
 				<label><span>Player Name</span></label>
-				<input type="text" autofocus />
+				<input name="playerName" type="text" autofocus required />
 
 				<label>
 					<span>Military Conflicts</span>
 					<img src="./assets/military_color.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="military"
+					type="number"
+					placeholder="0"
+					min="-100"
+					max="100"
+					title="Sum of all military tokens at the end of the game."
+				/>
 
 				<label>
 					<span>Treasury Contents</span>
 					<img src="./assets/coin.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="coins"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+					title="Number of coins at the end of the game. Score is calculated as follows: coins / 3."
+				/>
 
 				<label>
 					<span>Wonder</span>
 					<img src="./assets/wonder.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="wonder"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+					title="All points on the completed stages of the wonder at the end of the game."
+				/>
 
 				<label>
 					<span>Civilian Structures</span>
 					<img src="./assets/civilian_color.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="civilian"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+					title="All points given by the blue cards at the end of the game."
+				/>
 
 				<label>
 					<span>Scientific Structures</span>
@@ -44,15 +72,36 @@
 				<div class="science_row">
 					<div>
 						<img src="./assets/Symbol-A.png" width="30" />
-						<input type="number" value="0" min="0" max="99" />
+						<input
+							name="scientific_SymbolA"
+							type="number"
+							placeholder="0"
+							min="0"
+							max="100"
+							title="The number of the specific science symbol at the end of the game."
+						/>
 					</div>
 					<div>
 						<img src="./assets/Symbol-B.png" width="30" />
-						<input type="number" value="0" min="0" max="99" />
+						<input
+							name="scientific_SymbolB"
+							type="number"
+							placeholder="0"
+							min="0"
+							max="100"
+							title="The number of the specific science symbol at the end of the game."
+						/>
 					</div>
 					<div>
 						<img src="./assets/Symbol-C.png" width="30" />
-						<input type="number" value="0" min="0" max="99" />
+						<input
+							name="scientific_SymbolC"
+							type="number"
+							placeholder="0"
+							min="0"
+							max="100"
+							title="The number of the specific science symbol at the end of the game."
+						/>
 					</div>
 				</div>
 
@@ -60,20 +109,34 @@
 					<span>Commercial Structures</span>
 					<img src="./assets/commercial_color.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="commercial"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+					title="All points given by the yellow cards at the end of the game."
+				/>
 
 				<label>
 					<span>Guilds</span>
 					<img src="./assets/guild_color.jpg" width="30" height="30" />
 				</label>
-				<input type="number" value="0" min="0" max="99" />
+				<input
+					name="guilds"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+					title="All points given by the purple cards at the end of the game."
+				/>
 
-				<button class="default">Reset</button>
-				<button class="cta">Calculate Score</button>
+				<button class="default" name="resetBtn">Reset</button>
+				<button type="submit" class="cta">Calculate Score</button>
 			</form>
 			<aside>
 				<section>
-					<table class="scores-table">
+					<table class="player-score-table">
 						<caption>
 							Players Scores
 						</caption>
@@ -83,17 +146,9 @@
 								<th>Score</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>Sorin</td>
-								<td>38</td>
-							</tr>
-							<tr>
-								<td>Bianca</td>
-								<td>40</td>
-							</tr>
-						</tbody>
+						<tbody></tbody>
 					</table>
+					<button class="default">Score Details</button>
 					<div class="winner">Winner:</div>
 				</section>
 			</aside>

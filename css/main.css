@@ -7,8 +7,23 @@ body {
 	align-items: center;
 }
 
+body::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('../assets/7wonders_background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.5;
+	z-index: -1;
+}
+
 main {
 	display: flex;
+	opacity: 1;
 }
 
 form {
@@ -67,7 +82,7 @@ form .science_row div > :nth-child(odd) {
    BUTTON STYLES 
    =============== */
 
-form button {
+button {
 	margin-top: 1rem;
 	cursor: pointer;
 	color: #fff;
@@ -77,23 +92,23 @@ form button {
 	transition: background-color 0.3s;
 }
 
-form button.cta {
+button.cta {
 	background-color: #337aff;
 }
 
-form button.cta:hover {
+button.cta:hover {
 	background-color: #779fec;
 }
 
-form button.default {
+button.default {
 	background-color: #878a90;
 }
 
-form button.default:hover {
+button.default:hover {
 	background-color: #999ca2;
 }
 
-form button:focus {
+button:focus {
 	outline: none;
 }
 
@@ -104,9 +119,6 @@ form button:focus {
 form input {
 	border-radius: 5px;
 	border: 1px solid lightblue;
-}
-
-form input[type='number'] {
 	text-align: center;
 }
 
@@ -125,7 +137,12 @@ aside {
 	border-radius: 10px;
 }
 
-aside table.scores-table {
+aside section {
+	display: flex;
+	flex-direction: column;
+}
+
+aside table.player-score-table {
 	border: 1px solid lightblue;
 	width: 100%;
 	height: 100%;
@@ -135,22 +152,23 @@ aside table.scores-table {
 	text-align: center;
 }
 
-aside table.scores-table caption {
+aside table.player-score-table caption {
 	text-decoration: underline;
 	padding-bottom: 0.5rem;
 }
 
-aside table.scores-table th,
-aside table.scores-table td {
+aside table.player-score-table th,
+aside table.player-score-table td {
 	border: 1px solid lightblue;
 	padding: 0.5rem;
+	white-space: nowrap;
 }
 
-aside table.scores-table th {
+aside table.player-score-table th {
 	background-color: #dededf;
 }
 
-aside table.scores-table td {
+aside table.player-score-table td {
 	background-color: transparent;
 }
 
