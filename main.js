@@ -2,6 +2,10 @@
 	const form = document.querySelector('form');
 	const resetBtn = document.querySelector("button[name='resetBtn']");
 	const playerTableBody = document.querySelector('table.player-score-table tbody');
+	const scoreDetailsBtn = document.querySelector("button[name='score-details-btn']");
+	const closeDetailsBtn = document.querySelector("button[name='close-details-btn']");
+	const scoreDetailsWrapper = document.querySelector('#score-details-wrapper');
+	const allPlayersTableBody = document.querySelector('table.score-details-table tbody');
 
 	let formData = null;
 
@@ -21,6 +25,15 @@
 			};
 
 			resetBtn.addEventListener('click', () => form.reset());
+
+			scoreDetailsBtn.addEventListener('click', () => {
+				this.renderAllPlayers();
+				scoreDetailsWrapper.classList.add('show');
+			});
+
+			closeDetailsBtn.addEventListener('click', () => {
+				scoreDetailsWrapper.classList.remove('show');
+			});
 		},
 
 		calculatePow: (value) => {
@@ -40,6 +53,27 @@
 			playerFragment.append(tr);
 
 			playerTableBody.append(playerFragment);
+		},
+
+		renderAllPlayers: () => {
+			// clear the previous lines
+			allPlayersTableBody.innerHTML = '';
+
+			const allPlayersFragment = new DocumentFragment();
+
+			allPlayersScores.forEach((playerMap) => {
+				const tr = document.createElement('tr');
+
+				for (const [propName, value] of playerMap) {
+					const td = document.createElement('td');
+					td.textContent = value;
+					tr.append(td);
+				}
+
+				allPlayersFragment.append(tr);
+			});
+
+			allPlayersTableBody.append(allPlayersFragment);
 		},
 
 		reset: () => {
@@ -81,41 +115,27 @@
 				treasuryPoints
 			);
 
-			allPlayersScores.push({
-				'Player Name': playerName,
-				'Military Structures': military,
-				'Treasury Contents': {
-					Nr: coins,
-					Points: treasuryPoints,
-				},
-				Wonder: wonder,
-				'Civilian Structures': civilian,
-				'Scientific Structures': {
-					SymbolA: {
-						Nr: symbolA,
-						Points: symbolAPoints,
-					},
-					SymbolB: {
-						Nr: symbolB,
-						Points: symbolBPoints,
-					},
-					SymbolC: {
-						Nr: symbolC,
-						Points: symbolCPoints,
-					},
-					Suits: {
-						Nr: suits,
-						Points: suitsPoints,
-					},
-				},
-				'Commercial Structures': commercial,
-				Guilds: guilds,
-			});
+			const playerScoreMap = new Map();
+
+			playerScoreMap.set('playerName', playerName);
+			playerScoreMap.set('military', military);
+			playerScoreMap.set('treasuryNr', coins);
+			playerScoreMap.set('treasuryPoints', treasuryPoints);
+			playerScoreMap.set('wonder', wonder);
+			playerScoreMap.set('civilian', civilian);
+			playerScoreMap.set('symbolANr', symbolA);
+			playerScoreMap.set('symbolAPoints', symbolAPoints);
+			playerScoreMap.set('symbolBNr', symbolB);
+			playerScoreMap.set('symbolBPoints', symbolBPoints);
+			playerScoreMap.set('symbolCNr', symbolC);
+			playerScoreMap.set('symbolCPoints', symbolCPoints);
+			playerScoreMap.set('commercial', commercial);
+			playerScoreMap.set('guilds', guilds);
+			playerScoreMap.set('totalScore', totalScore);
+
+			allPlayersScores.push(playerScoreMap);
 
 			this.renderPlayer(playerName, totalScore);
-
-			console.log('allPlayersScores', allPlayersScores);
-
 			this.reset();
 		},
 
