@@ -254,25 +254,11 @@ table td {
 		margin: 0 auto;
 	}
 
-	/* table {
-		table-layout: fixed;
-		font-size: 0.5rem;
+	table th,
+	table td {
+		padding: 3px;
+		white-space: initial;
 	}
-
-	table th {
-		padding: 0;
-		white-space: wrap;
-	}
-
-	table th.commercial-col {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	table th img {
-		width: 15px;
-	} */
 }
 
 @media screen and (max-width: 700px) {
