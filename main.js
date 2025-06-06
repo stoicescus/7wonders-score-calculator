@@ -7,6 +7,7 @@
 	const scoreDetailsWrapper = document.querySelector('#score-details-wrapper');
 	const cells = document.querySelectorAll('table.score-details-table tbody td.cell-value');
 	const headers = document.querySelectorAll('table.score-details-table thead th.header-value');
+	const main = document.querySelector('main');
 
 	let formData = null;
 
@@ -15,19 +16,16 @@
 	// Map rowIndex to corresponding property in playerMap
 	const propertyMap = {
 		0: 'military',
-		1: 'treasuryNr',
-		2: 'treasuryPoints',
-		3: 'wonder',
-		4: 'civilian',
-		5: 'symbolANr',
-		6: 'symbolAPoints',
-		7: 'symbolBNr',
-		8: 'symbolBPoints',
-		9: 'symbolCNr',
-		10: 'symbolCPoints',
-		11: 'commercial',
-		12: 'guilds',
-		13: 'totalScore',
+		1: 'treasury',
+		2: 'wonder',
+		3: 'civilian',
+		4: 'symbolA',
+		5: 'symbolB',
+		6: 'symbolC',
+		7: 'suits',
+		8: 'commercial',
+		9: 'guilds',
+		10: 'totalScore',
 	};
 
 	const formManager = {
@@ -57,11 +55,14 @@
 				}
 
 				this.renderAllPlayers();
+
+				main.classList.add('hide');
 				scoreDetailsWrapper.classList.add('show');
 			});
 
 			closeDetailsBtn.addEventListener('click', () => {
 				scoreDetailsWrapper.classList.remove('show');
+				main.classList.remove('hide');
 			});
 		},
 
@@ -98,6 +99,7 @@
 		updateTableCell: (row, rowIndex, playerMap, index) => {
 			const property = propertyMap[rowIndex];
 			const cell = row.querySelectorAll('td.cell-value')[index];
+
 			if (property && playerMap.has(property)) {
 				cell.textContent = playerMap.get(property);
 			}
@@ -111,6 +113,7 @@
 			allPlayersScores.forEach((playerMap, index) => {
 				// Update player name in the headers
 				const playerName = playerMap.get('playerName');
+
 				if (playerName) {
 					headers[index].textContent = playerName;
 				}
@@ -165,16 +168,13 @@
 
 			playerScoreMap.set('playerName', playerName);
 			playerScoreMap.set('military', military);
-			playerScoreMap.set('treasuryNr', coins);
-			playerScoreMap.set('treasuryPoints', treasuryPoints);
+			playerScoreMap.set('treasury', `${treasuryPoints} (${coins})`);
 			playerScoreMap.set('wonder', wonder);
 			playerScoreMap.set('civilian', civilian);
-			playerScoreMap.set('symbolANr', symbolA);
-			playerScoreMap.set('symbolAPoints', symbolAPoints);
-			playerScoreMap.set('symbolBNr', symbolB);
-			playerScoreMap.set('symbolBPoints', symbolBPoints);
-			playerScoreMap.set('symbolCNr', symbolC);
-			playerScoreMap.set('symbolCPoints', symbolCPoints);
+			playerScoreMap.set('symbolA', `${symbolAPoints} (${symbolA})`);
+			playerScoreMap.set('symbolB', `${symbolBPoints} (${symbolB})`);
+			playerScoreMap.set('symbolC', `${symbolCPoints} (${symbolC})`);
+			playerScoreMap.set('suits', suitsPoints);
 			playerScoreMap.set('commercial', commercial);
 			playerScoreMap.set('guilds', guilds);
 			playerScoreMap.set('totalScore', totalScore);
