@@ -9,11 +9,11 @@ body {
 
 body::before {
 	content: '';
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	background: url('../assets/7wonders_background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -24,6 +24,10 @@ body::before {
 main {
 	display: flex;
 	opacity: 1;
+}
+
+main.hide {
+	display: none;
 }
 
 form {
@@ -153,12 +157,14 @@ aside .winner {
 
 table {
 	border: 1px solid lightblue;
-	width: 100%;
+	width: 75%;
+	max-width: 100%;
 	height: 100%;
 	table-layout: auto;
 	border-collapse: collapse;
 	border-spacing: 1px;
 	text-align: center;
+	margin: 0 auto;
 }
 
 table caption {
@@ -177,8 +183,13 @@ table th {
 	background-color: #dededf;
 }
 
-table td {
+table tr {
 	background-color: white;
+}
+
+table.score-details-table tbody tr:last-child {
+	background-color: lightgray;
+	font-weight: bold;
 }
 
 /* ===============
@@ -191,7 +202,7 @@ table td {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.5);
 	display: none;
 }
 
