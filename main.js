@@ -8,6 +8,8 @@
 	const cells = document.querySelectorAll('table.score-details-table tbody td.cell-value');
 	const headers = document.querySelectorAll('table.score-details-table thead th.header-value');
 	const main = document.querySelector('main');
+	const winnerList = document.querySelector('.winner-list');
+	const playerNameInput = document.querySelector('input[name="playerName"]');
 
 	let formData = null;
 
@@ -44,7 +46,17 @@
 					return;
 				}
 
+				// check duplicate names
+				const newPlayerName = playerNameInput.value;
+				const existingPlayerNames = allPlayersScores.map((playerMap) => playerMap.get('playerName'));
+
+				if (existingPlayerNames.includes(newPlayerName)) {
+					alert('Player already exists');
+					return;
+				}
+
 				_this.calculateScore();
+				_this.calculateWinner();
 			};
 
 			resetBtn.addEventListener('click', () => form.reset());
@@ -63,6 +75,18 @@
 			closeDetailsBtn.addEventListener('click', () => {
 				scoreDetailsWrapper.classList.remove('show');
 				main.classList.remove('hide');
+			});
+		},
+
+		calculateWinner: () => {
+			let maxScore = Math.max(...allPlayersScores.map((player) => player.get('totalScore')));
+			const winners = allPlayersScores.filter((player) => player.get('totalScore') === maxScore);
+
+			winnerList.innerHTML = '';
+
+			winners.forEach((winner) => {
+				const playerName = winner.get('playerName');
+				winnerList.innerHTML += `<div>${playerName}</div>`;
 			});
 		},
 

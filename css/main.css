@@ -146,9 +146,15 @@ aside section {
 	flex-direction: column;
 }
 
-aside .winner {
+aside .winner-section {
 	margin-top: 1rem;
 	font-weight: bold;
+}
+
+aside .winner-title {
+	text-align: center;
+	text-decoration: underline;
+	padding-bottom: 0.5rem;
 }
 
 /* ===============
@@ -170,6 +176,7 @@ table {
 table caption {
 	text-decoration: underline;
 	padding-bottom: 0.5rem;
+	font-weight: bold;
 }
 
 table th,
